@@ -34,7 +34,7 @@
   --fs-title: 7rem;
   --fs-subheading: 3rem;
   --fs-subsubheading: 1.5rem;
-  --fs-nav: 1.3rem;
+  --fs-nav: 1.1rem;
   --fs-body: 1.2rem;
 
   --ff-body: 'Encode Sans';
@@ -49,6 +49,7 @@ body[data-theme='dark'] {
   --color-background: var(--color-primary-800);
   --color-background-nav: var(--color-primary-700);
   --color-nav: var(--color-accent-100);
+  --color-nav-text: var(--color-accent-400);
   --color-text: var(--color-primary-100);
   --color-primary-faint: var(--color-primary-700);
   --color-accent-1: var(--color-accent-transparent-700);
