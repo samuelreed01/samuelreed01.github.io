@@ -1,9 +1,6 @@
 @use 'variables';
 @use 'section';
 
-@import url('https://fonts.googleapis.com/css2?family=Encode+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
-
 @media only screen and (max-width: 375px) {
   body {
     --fs-title: 5rem;
