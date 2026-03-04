@@ -13,7 +13,7 @@ const { projects } = Astro.props;
       projects.map((project, i) => (
         <li>
         <button id={project.data.id} class={`project-button ${i === 0 ? 'selected' : ''}`}>
-          <img alt={`${project.data.id} icon`} class="icon-small" src={project.data.iconSrc} />
+          {/* <img alt={`${project.data.id} icon`} class="icon-small" src={project.data.iconSrc} /> */}
           <span>{project.data.title}</span>
         </button>
         </li>

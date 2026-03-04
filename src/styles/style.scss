@@ -42,7 +42,8 @@ main {
   margin-top: 3rem;
 }
 
-p {
+p,
+ul {
   max-width: 60ch;
   font-size: var(--fs-body);
   line-height: 1.5;

@@ -83,40 +83,43 @@ const { images } = Astro.props;
 </style>
 
 <script>
-  const carousel = document.querySelector<HTMLDivElement>('.carousel')!;
-  const images = carousel.querySelectorAll<HTMLImageElement>('.carousel-image');
-  const nextButton = carousel.querySelector<HTMLButtonElement>('button[data-direction="next"]')!;
-  const prevButton = carousel.querySelector<HTMLButtonElement>('button[data-direction="prev"]')!;
-  const dots = carousel.querySelectorAll<HTMLSpanElement>('.dot');
+  const carousels = document.querySelectorAll<HTMLDivElement>('.carousel');
 
-  const updateClasses = (newIndex: number) => {
-    carousel.dataset.currentIndex = newIndex.toString();
-    images.forEach((img, i) => {
-      if (i < newIndex) {
-        img.classList.remove('right');
-        img.classList.add('left');
-      } else if (i === newIndex) {
-        img.classList.remove('right', 'left');
-      } else if (i > newIndex) {
-        img.classList.remove('left');
-        img.classList.add('right');
-      }
-    });
-    dots.forEach((dot, i) => (i === newIndex ? dot.classList.add('current') : dot.classList.remove('current')));
-  };
-
-  const nextImage = () => {
-    const currentIndex = Number(carousel.dataset.currentIndex);
-    if (currentIndex < images.length - 1) updateClasses(currentIndex + 1);
-  };
-
-  const prevImage = () => {
-    const currentIndex = Number(carousel.dataset.currentIndex);
-    if (currentIndex > 0) updateClasses(currentIndex - 1);
-  };
-
-  nextButton.addEventListener('click', nextImage);
-  prevButton.addEventListener('click', prevImage);
+  carousels.forEach(carousel => {
+    const images = carousel.querySelectorAll<HTMLImageElement>('.carousel-image');
+    const nextButton = carousel.querySelector<HTMLButtonElement>('button[data-direction="next"]')!;
+    const prevButton = carousel.querySelector<HTMLButtonElement>('button[data-direction="prev"]')!;
+    const dots = carousel.querySelectorAll<HTMLSpanElement>('.dot');
+            
+    const updateClasses = (newIndex: number) => {
+      carousel.dataset.currentIndex = newIndex.toString();
+      images.forEach((img, i) => {
+        if (i < newIndex) {
+          img.classList.remove('right');
+          img.classList.add('left');
+        } else if (i === newIndex) {
+          img.classList.remove('right', 'left');
+        } else if (i > newIndex) {
+          img.classList.remove('left');
+          img.classList.add('right');
+        }
+      });
+      dots.forEach((dot, i) => (i === newIndex ? dot.classList.add('current') : dot.classList.remove('current')));
+    };
+    
+    const nextImage = () => {
+      const currentIndex = Number(carousel.dataset.currentIndex);
+      if (currentIndex < images.length - 1) updateClasses(currentIndex + 1);
+    };
+    
+    const prevImage = () => {
+      const currentIndex = Number(carousel.dataset.currentIndex);
+      if (currentIndex > 0) updateClasses(currentIndex - 1);
+    };
+    
+    nextButton.addEventListener('click', nextImage);
+    prevButton.addEventListener('click', prevImage);
+  })
 </script>
 
 <div class="carousel" data-current-index="0">

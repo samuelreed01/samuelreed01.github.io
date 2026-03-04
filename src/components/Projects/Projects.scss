@@ -19,6 +19,19 @@
     --bracket-color: var(--color-background);
   }
 
+  h3 {
+    text-align: center;
+    padding: 1em 0;
+
+    a {
+      opacity: 60%;
+
+      &:hover {
+        opacity: 100%;
+      }
+    }
+  }
+
   .projects-wrapper {
     display: flex;
     flex-direction: row;
