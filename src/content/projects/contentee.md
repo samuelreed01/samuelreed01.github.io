@@ -2,7 +2,12 @@
 id: contentee
 title: Contentee
 link: https://contentee.ai
-images: ['/images/projects/contentee1.webp', '/images/projects/contentee2.webp', '/images/projects/contentee3.webp']
+images:
+  [
+    "/images/projects/contentee1.webp",
+    "/images/projects/contentee2.webp",
+    "/images/projects/contentee3.webp",
+  ]
 order: 2
 draft: true
 ---

@@ -1,8 +1,9 @@
-import { glob } from 'astro/loaders';
-import { z } from 'astro/zod';
-import { defineCollection } from 'astro:content';
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
+import { defineCollection } from "astro:content";
+
 const oldProjectCollection = defineCollection({
-  loader: glob({ base: './src/content/oldProjects', pattern: '**/*.{md,mdx}' }),
+  loader: glob({ base: "./src/content/oldProjects", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
     id: z.string(),
     iconSrc: z.string(),
@@ -13,7 +14,7 @@ const oldProjectCollection = defineCollection({
   }),
 });
 const realProjectCollection = defineCollection({
-  loader: glob({ base: './src/content/projects', pattern: '**/*.{md,mdx}' }),
+  loader: glob({ base: "./src/content/projects", pattern: "**/*.{md,mdx}" }),
   schema: z.object({
     id: z.string(),
     title: z.string(),
@@ -22,6 +23,7 @@ const realProjectCollection = defineCollection({
     order: z.number().optional(),
   }),
 });
+
 export const collections = {
   oldProjects: oldProjectCollection,
   projects: realProjectCollection,
