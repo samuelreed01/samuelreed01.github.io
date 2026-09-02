@@ -22,6 +22,10 @@
 </style>
 
 <script>
+  const characters = "01xQaFAb";
+  const getRandomChar = () =>
+    characters[Math.floor(Math.random() * characters.length)];
+
   const noAnimation = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
@@ -34,7 +38,7 @@
     for (let i = 0; i < bits; i++) {
       const bit = document.createElement("span");
       bit.className = "ripple-bit";
-      bit.textContent = "0";
+      bit.textContent = getRandomChar();
       container.appendChild(bit);
     }
 
@@ -53,7 +57,7 @@
         if (distance > maxRippleSize) return;
 
         const power = Math.max(0, (maxRippleSize - distance) / maxRippleSize);
-        const opacity = (1 - 0.3) * power + 0.3;
+        const opacity = (1 - 0.2) * power + 0.2;
 
         const dot = (x - mouseX) * dirX + (y - mouseY) * dirY; // calculate the dot product
 
@@ -65,7 +69,7 @@
               color: "rgba(255, 255, 255, 0.2)",
             },
             {
-              color: `rgba(230, 230, 255, ${opacity})`,
+              color: `rgba(225, 225, 255, ${opacity})`,
             },
             {
               color: "rgba(255, 255, 255, 0.2)",
