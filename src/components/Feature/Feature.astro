@@ -1,8 +1,14 @@
+---
+import Ripple from "@components/Animations/Ripple.astro";
+---
+
 <style lang="scss">
   section {
     width: 100%;
     max-width: 100%;
     background-color: var(--color-primary-faint);
+    overflow: hidden;
+    position: relative;
     isolation: isolate;
   }
 
@@ -34,7 +40,7 @@
     --bracket-color: var(--color-background);
 
     &::before {
-      content: '{';
+      content: "{";
       position: absolute;
       left: min(5rem, 10vw);
       top: calc(-1 * min(5rem, 10vw));
@@ -44,7 +50,7 @@
     }
 
     &::after {
-      content: '}';
+      content: "}";
       position: absolute;
       right: min(5rem, 10vw);
       bottom: calc(-1 * min(5rem, 10vw));
@@ -70,42 +76,135 @@
 </style>
 
 <section>
+  <Ripple />
   <div class="flex feature-wrapper">
     <div class="feature">
-      <span><span class="feature-title highlight color1">Design without Limits</span></span><span
-        class="feature-subtitle">Let me handle the details, so you can focus on the big picture</span
+      <span
+        ><span class="feature-title highlight color1"
+          >Design without Limits</span
+        ></span
+      ><span class="feature-subtitle"
+        >Let me handle the details, so you can focus on the big picture</span
       >
     </div>
 
     <div class="icon-grid">
       <div>
-        <img src="/icons/typescript-official-svgrepo-com.svg" alt="Typescript Icon" class="icon-js" />
-        <img src="/icons/reactjs-svgrepo-com.svg" alt="React Icon" class="icon-js" />
-        <img src="/icons/node-svgrepo-com.svg" alt="Node Icon" class="icon-js" />
-        <img src="/icons/google-cloud-svgrepo-com.svg" alt="Google Cloud Icon" class="icon-js" />
-        <img src="/icons/next-16-svgrepo-com.svg" alt="Next.js Icon" class="icon-js" />
-        <img src="/icons/js-svgrepo-com.svg" alt="Javascript Icon" class="icon-js" />
-        <img src="/icons/docker-svgrepo-com.svg" alt="Docker Icon" class="icon-js" />
+        <img
+          src="/icons/typescript-official-svgrepo-com.svg"
+          alt="Typescript Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/reactjs-svgrepo-com.svg"
+          alt="React Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/node-svgrepo-com.svg"
+          alt="Node Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/google-cloud-svgrepo-com.svg"
+          alt="Google Cloud Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/next-16-svgrepo-com.svg"
+          alt="Next.js Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/js-svgrepo-com.svg"
+          alt="Javascript Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/docker-svgrepo-com.svg"
+          alt="Docker Icon"
+          class="icon-js"
+        />
         <img src="/icons/npm-svgrepo-com.svg" alt="NPM Icon" class="icon-js" />
         <img src="/icons/sql-svgrepo-com.svg" alt="SQL Icon" class="icon-js" />
-        <img src="/icons/html-5-svgrepo-com.svg" alt="HTML Icon" class="icon-js" />
-        <img src="/icons/css-3-svgrepo-com.svg" alt="CSS Icon" class="icon-js" />
-        <img src="/icons/express-svgrepo-com.svg" alt="Express Icon" class="icon-js" />
-        <img src="/icons/mongodb-svgrepo-com.svg" alt="Mongodb Icon" class="icon-js" />
+        <img
+          src="/icons/html-5-svgrepo-com.svg"
+          alt="HTML Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/css-3-svgrepo-com.svg"
+          alt="CSS Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/express-svgrepo-com.svg"
+          alt="Express Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/mongodb-svgrepo-com.svg"
+          alt="Mongodb Icon"
+          class="icon-js"
+        />
         <!-- second copy below -->
-        <img src="/icons/typescript-official-svgrepo-com.svg" alt="Typescript Icon" class="icon-js" />
-        <img src="/icons/reactjs-svgrepo-com.svg" alt="React Icon" class="icon-js" />
-        <img src="/icons/node-svgrepo-com.svg" alt="Node Icon" class="icon-js" />
-        <img src="/icons/google-cloud-svgrepo-com.svg" alt="Google Cloud Icon" class="icon-js" />
-        <img src="/icons/next-16-svgrepo-com.svg" alt="Next.js Icon" class="icon-js" />
-        <img src="/icons/js-svgrepo-com.svg" alt="Javascript Icon" class="icon-js" />
-        <img src="/icons/docker-svgrepo-com.svg" alt="Docker Icon" class="icon-js" />
+        <img
+          src="/icons/typescript-official-svgrepo-com.svg"
+          alt="Typescript Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/reactjs-svgrepo-com.svg"
+          alt="React Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/node-svgrepo-com.svg"
+          alt="Node Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/google-cloud-svgrepo-com.svg"
+          alt="Google Cloud Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/next-16-svgrepo-com.svg"
+          alt="Next.js Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/js-svgrepo-com.svg"
+          alt="Javascript Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/docker-svgrepo-com.svg"
+          alt="Docker Icon"
+          class="icon-js"
+        />
         <img src="/icons/npm-svgrepo-com.svg" alt="NPM Icon" class="icon-js" />
         <img src="/icons/sql-svgrepo-com.svg" alt="SQL Icon" class="icon-js" />
-        <img src="/icons/html-5-svgrepo-com.svg" alt="HTML Icon" class="icon-js" />
-        <img src="/icons/css-3-svgrepo-com.svg" alt="CSS Icon" class="icon-js" />
-        <img src="/icons/express-svgrepo-com.svg" alt="Express Icon" class="icon-js" />
-        <img src="/icons/mongodb-svgrepo-com.svg" alt="Mongodb Icon" class="icon-js" />
+        <img
+          src="/icons/html-5-svgrepo-com.svg"
+          alt="HTML Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/css-3-svgrepo-com.svg"
+          alt="CSS Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/express-svgrepo-com.svg"
+          alt="Express Icon"
+          class="icon-js"
+        />
+        <img
+          src="/icons/mongodb-svgrepo-com.svg"
+          alt="Mongodb Icon"
+          class="icon-js"
+        />
       </div>
     </div>
   </div>

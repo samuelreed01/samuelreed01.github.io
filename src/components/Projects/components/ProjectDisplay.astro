@@ -1,6 +1,7 @@
 ---
 import Carousel from '@components/Carousel/Carousel.astro';
 import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
 
 interface Props {
   projects: CollectionEntry<'projects'>[];
@@ -11,7 +12,7 @@ const { projects } = Astro.props;
 <div id="project-display-panel">
   {
     projects.map(async (project, i) => {
-      const { Content } = await project.render();
+      const { Content } = await render(project);
 
       const linkText = project.data.link ? project.data.link.replace('https://', '') : '';
 

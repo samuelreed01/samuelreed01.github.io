@@ -1,0 +1,96 @@
+<style>
+  .ripple-animation {
+    position: absolute;
+    inset: -0.5em;
+    max-width: 100vw;
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .ripple-bit {
+    pointer-events: none;
+    z-index: -10;
+  }
+
+  .ripple-bit-active {
+    color: #fffa;
+  }
+</style>
+
+<script>
+  const noAnimation = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  if (!noAnimation) {
+    const container = document.querySelector(".ripple-animation")!;
+    const bits = 5000;
+    const maxRippleSize = 200;
+    let bitPositionArray: { x: number; y: number; el: HTMLSpanElement }[] = [];
+
+    for (let i = 0; i < bits; i++) {
+      const bit = document.createElement("span");
+      bit.className = "ripple-bit";
+      bit.textContent = "0";
+      container.appendChild(bit);
+    }
+
+    container.addEventListener("click", (e) => e.preventDefault());
+
+    container.addEventListener("pointermove", (e: PointerEvent) => {
+      const mouseX = e.x;
+      const mouseY = e.y;
+
+      const delta = Math.hypot(e.movementX, e.movementY);
+      const dirX = e.movementX / delta;
+      const dirY = e.movementY / delta;
+
+      bitPositionArray.forEach(({ x, y, el }) => {
+        const distance = Math.hypot(mouseX - x, mouseY - y);
+        if (distance > maxRippleSize) return;
+
+        const power = Math.max(0, (maxRippleSize - distance) / maxRippleSize);
+        const opacity = (1 - 0.3) * power + 0.3;
+
+        const dot = (x - mouseX) * dirX + (y - mouseY) * dirY; // calculate the dot product
+
+        if (delta > 7 && dot < 0) return;
+
+        el.animate(
+          [
+            {
+              color: "rgba(255, 255, 255, 0.2)",
+            },
+            {
+              color: `rgba(230, 230, 255, ${opacity})`,
+            },
+            {
+              color: "rgba(255, 255, 255, 0.2)",
+            },
+          ],
+          {
+            duration: 200,
+            delay: distance * 4,
+            easing: "ease-out",
+          },
+        );
+      });
+    });
+
+    const calculateBitPositions = () => {
+      bitPositionArray = Array.from(
+        document.querySelectorAll<HTMLSpanElement>(".ripple-bit"),
+      ).map((el) => {
+        const { x, y } = el.getBoundingClientRect();
+        return { x, y, el };
+      });
+    };
+    calculateBitPositions();
+    window.addEventListener("resize", calculateBitPositions);
+    window.addEventListener("scroll", calculateBitPositions);
+  }
+</script>
+<div class="ripple-animation"></div>
