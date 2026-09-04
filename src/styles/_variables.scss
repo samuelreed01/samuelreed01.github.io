@@ -37,15 +37,16 @@
   --fs-nav: 1.1rem;
   --fs-body: 1.2rem;
 
-  --ff-body: 'Encode Sans';
-  --ff-heading: 'Encode Sans';
-  --ff-title: 'Roboto Mono';
+  --ff-body: "Encode Sans";
+  --ff-heading: "Encode Sans";
+  --ff-title: "Roboto Mono";
 
   // other
   --max-site-width: 80rem;
+  --ripple-color: rgba(230, 230, 255, 0.2);
 }
 
-body[data-theme='dark'] {
+body[data-theme="dark"] {
   --color-background: var(--color-primary-800);
   --color-background-nav: var(--color-primary-700);
   --color-nav: var(--color-accent-100);
@@ -56,4 +57,5 @@ body[data-theme='dark'] {
   --color-accent-2: var(--color-accent-transparent-alt1-700);
   --color-accent-3: var(--color-accent-transparent-alt2-700);
   --color-project-button: var(--color-primary-700);
+  --ripple-color: rgba(255, 255, 255, 0.02);
 }

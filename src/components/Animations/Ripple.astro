@@ -6,7 +6,7 @@
     word-break: break-all;
     font-family: monospace;
     font-size: 1.5em;
-    color: rgba(255, 255, 255, 0.2);
+    color: var(--ripple-color);
     user-select: none;
     -webkit-user-select: none;
   }
@@ -45,6 +45,9 @@
     container.addEventListener("click", (e) => e.preventDefault());
 
     container.addEventListener("pointermove", (e: PointerEvent) => {
+      const isDark = document.body.dataset?.theme === "dark";
+      const baseOpacity = isDark ? 0.02 : 0.2;
+      const peakOpacity = isDark ? 0.7 : 1;
       const mouseX = e.x;
       const mouseY = e.y;
 
@@ -57,7 +60,7 @@
         if (distance > maxRippleSize) return;
 
         const power = Math.max(0, (maxRippleSize - distance) / maxRippleSize);
-        const opacity = (1 - 0.2) * power + 0.2;
+        const opacity = (peakOpacity - baseOpacity) * power + baseOpacity;
 
         const dot = (x - mouseX) * dirX + (y - mouseY) * dirY; // calculate the dot product
 
@@ -66,13 +69,13 @@
         el.animate(
           [
             {
-              color: "rgba(255, 255, 255, 0.2)",
+              color: `var(--ripple-color)`,
             },
             {
-              color: `rgba(225, 225, 255, ${opacity})`,
+              color: `rgba(220, 220, 250, ${opacity})`,
             },
             {
-              color: "rgba(255, 255, 255, 0.2)",
+              color: `var(--ripple-color)`,
             },
           ],
           {
