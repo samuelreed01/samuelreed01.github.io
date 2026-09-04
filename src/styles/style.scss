@@ -1,5 +1,5 @@
-@use 'variables';
-@use 'section';
+@use "variables";
+@use "section";
 
 @media only screen and (max-width: 375px) {
   body {
@@ -43,6 +43,7 @@ main {
 }
 
 p,
+h3,
 ul {
   max-width: 60ch;
   font-size: var(--fs-body);
@@ -57,13 +58,13 @@ h2 {
   --bracket-color: var(--color-primary-accent);
 
   &::before {
-    content: '[';
+    content: "[";
     color: var(--bracket-color);
     position: relative;
     right: 1rem;
   }
   &::after {
-    content: ']';
+    content: "]";
     color: var(--bracket-color);
     position: relative;
     left: 1rem;
